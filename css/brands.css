@@ -1,0 +1,445 @@
+/* ============================================= */
+/* --- Brands Page Specific Styles --- */
+/* ============================================= */
+
+/* Define --darker-grey-bg if not already in main style.css or a shared variables file */
+:root {
+    /* ... other variables from your main style.css ... */
+    --blyza-orange-primary: #FF8833;
+    --blyza-purple-secondary: #cb7ae1;
+    --blyza-keppel-accent: #00BFA6;
+    --blyza-sunny-yellow: #FFDF00;
+    --darker-grey-bg: #33373d; /* A suitable dark grey for sections */
+    --text-light: #FDFEFE;
+    --text-dark: #2C3A47;
+    --text-medium: #535c68;
+    --black-stroke: #1A1A1A;
+    --nav-height: 60px; /* Reduced header height */
+    --border-radius-game: 12px;
+    --shadow-chunky: 4px 4px 0px var(--black-stroke);
+}
+
+/* Reduce Header Height */
+#main-header {
+    height: var(--nav-height);
+}
+#main-header nav.container {
+    height: 100%; /* Ensure nav content uses new height */
+}
+/* Mobile header might also need adjustment if padding/logo size contributes to height */
+@media (max-width: 767.98px) {
+    :root { --nav-height: 55px; } /* Further reduce for mobile if needed */
+     #main-header .logo.header-logo-link .logo-img {
+        height: 40px; /* Smaller logo in header on mobile */
+    }
+    #main-header .logo.header-logo-link .logo-text {
+        font-size: 2rem; /* Smaller logo text */
+    }
+}
+
+
+.page-hero {
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-light);
+    padding-top: var(--nav-height); /* Account for new fixed header height */
+}
+
+#brands-hero {
+    background-color: var(--blyza-orange-primary); /* Orange Background for Hero */
+}
+
+#brands-hero h1 {
+    margin-top: 100px;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    -webkit-text-stroke-width: 1.5px;
+    text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: var(--black-stroke);
+    text-stroke-color: var(--black-stroke);
+    margin-bottom: 0.3em;
+    color: var(--text-light);
+}
+#brands-hero h1 .highlight-section-theme { /* "For Brands" */
+    color: var(--blyza-keppel-accent); /* Keppel Accent highlight */
+}
+
+#brands-hero .subtext {
+    font-size: clamp(1.1rem, 2.2vw, 1.4rem); /* Slightly larger */
+    font-weight: 600; /* Bolder text */
+    color: rgba(255, 255, 255, 1); /* Full white for clarity */
+    max-width: 700px;
+    margin-top: 0.2em;
+    margin-left: 70px;
+    letter-spacing: 0.3px;
+    
+}
+
+/* "Why Advertise with Blyza?" section */
+#why-blyza {
+    background-color: var(--blyza-purple-secondary); /* Purple Background */
+    color: var(--text-light);
+}
+#why-blyza .section-header h2 {
+    color: var(--text-light);
+    -webkit-text-stroke-color: var(--black-stroke);
+    text-stroke-color: var(--black-stroke);
+}
+#why-blyza .section-header h2 .highlight-section-theme { /* "with Blyza?" */
+    color: var(--blyza-orange-primary); /* Orange Primary highlight */
+}
+
+/* Powerup cards in "Why Advertise" to match homepage "Unlock the Fun" cards */
+#why-blyza .powerup-card {
+    background: linear-gradient(145deg, #fdfefe, #e9ecef); /* Light background like homepage cards */
+    border: 3px solid var(--text-dark); /* Dark border */
+    box-shadow: var(--shadow-chunky); /* Use the chunky shadow variable */
+    color: var(--text-dark); /* Dark text for content */
+}
+#why-blyza .powerup-card:hover {
+    box-shadow: 6px 6px 0 var(--blyza-orange-primary); /* Orange shadow on hover */
+    border-color: var(--blyza-orange-primary); /* Orange border on hover */
+    transform: translateY(-5px) rotate(1deg); /* Keep existing hover transform */
+}
+#why-blyza .powerup-text h3 {
+    color: var(--darker-grey-bg); /* Dark grey heading for cards */
+}
+#why-blyza .powerup-text .highlight-level {
+    color: var(--blyza-orange-primary); /* Orange for "Lvl Up!" */
+}
+#why-blyza .powerup-text p {
+    color: var(--text-medium); /* Medium grey for paragraph text */
+}
+#why-blyza .powerup-icon-container {
+    background-color: var(--blyza-orange-primary); /* Orange icon bg */
+    color: var(--text-light);
+    border-color: var(--black-stroke);
+}
+#why-blyza .powerup-badge {
+    background-color: var(--blyza-keppel-accent);
+    color: var(--text-light);
+    border-color: var(--black-stroke);
+}
+#why-blyza .speech-bubble-deco {
+    background: var(--blyza-electric-blue);
+    color: var(--text-light);
+    border-color: var(--black-stroke);
+}
+
+/* --- MODIFIED --- */
+/* This is the new style for the intro paragraph in the "Why Blyza" section. */
+/* It creates a "dialog box" effect that matches your brand identity. */
+#why-blyza .section-intro {
+    background-color: rgba(0, 0, 0, 0.2); /* Darkens the purple bg for contrast */
+    color: var(--text-light); /* Fully opaque white for clarity */
+    padding: 1.5em 2em;
+    border-radius: var(--border-radius-game);
+    border: 2px solid var(--black-stroke);
+    box-shadow: var(--shadow-chunky);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 4.5em;
+    font-size: 1.1rem; /* Slightly larger */
+    font-weight: 500; /* Bolder for impact */
+    line-height: 1.6;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.4); /* Subtle shadow for pop */
+    transform: rotate(-1deg); /* Playful tilt to match the funky vibe */
+}
+
+
+#partnership-opportunities-slider-section {
+    background-color: var(--darker-grey-bg); /* Darker grey background */
+    color: var(--text-light);
+}
+#partnership-opportunities-slider-section .section-header h2 {
+    color: var(--text-light);
+}
+#partnership-opportunities-slider-section .section-header h2 .highlight-section-theme {
+    color: var(--blyza-orange-primary); /* Orange highlight */
+}
+
+
+#contact-brands {
+    background-color: var(--blyza-keppel-accent);
+    text-align: center;
+    padding: 60px 20px;
+}
+#contact-brands h3 {
+    font-family: var(--font-logo);
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: var(--text-light);
+    -webkit-text-stroke: 1.5px var(--black-stroke);
+    text-stroke: 1.5px var(--black-stroke);
+    margin-bottom: 0.5em;
+}
+#contact-brands h3 .highlight-section-theme { /* "Impact?" */
+    color: var(--blyza-orange-primary); /* Orange highlight */
+}
+
+/* --- MODIFIED --- */
+/* This is the new style for the subtext in the contact section. */
+/* It's larger, bolder, and has a subtle chunky shadow for clarity and brand alignment. */
+#contact-brands p {
+    color: var(--text-light); /* Changed to full white for clarity */
+    margin-bottom: 2em; /* Increased space before the button */
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.15rem; /* Larger and clearer */
+    font-weight: 500; /* Bolder for impact */
+    line-height: 1.6;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.25); /* Subtle, dark, chunky-style shadow */
+}
+
+#contact-brands .btn-retro-game i {
+    margin-left: 0.5em;
+}
+
+/* ADDED: Specific hover style for the contact button */
+#contact-brands .btn-retro-game:hover {
+    background-color: var(--blyza-orange-primary);
+    color: var(--text-dark); /* Use dark text on orange for contrast */
+}
+
+
+/* SVG Background Pattern */
+.section-bg-pattern {
+    position: absolute;
+    top:0; left:0; width:100%; height:100%;
+    z-index:0;
+    background-repeat: repeat;
+    background-size: 150px 150px;
+    opacity: 0.06;
+    pointer-events: none;
+}
+
+.new-blyza-pattern-light-on-dark { /* For dark backgrounds like purple #why-blyza */
+    background-image: url('https://static.wixstatic.com/shapes/9ce3e5_3f923a48906648688fec5ea31b51f1f3.svg');
+    background-repeat: repeat; /* Ensure it repeats */
+    background-size: 120px; /* Adjust this value to make the logo smaller/larger */
+}
+
+.new-blyza-pattern-dark-on-light { /* For lighter backgrounds like dark-grey #partnership-opportunities */
+    background-image: url('https://static.wixstatic.com/shapes/9ce3e5_3f923a48906648688fec5ea31b51f1f3.svg');
+     background-repeat: repeat; /* Ensure it repeats */
+     background-size: 100px; /* Adjust this value to make the logo smaller/larger */
+}
+
+
+/* ============================================= */
+/* --- Partnership Opportunities Slider --- */
+/* ============================================= */
+.partnership-slider-container {
+    position: relative;
+    max-width: 950px; /* CHANGED: Increased from 800px to allow for a larger image */
+    margin: 2em auto;
+    overflow: hidden;
+    border-radius: var(--border-radius-game);
+    box-shadow: var(--shadow-chunky);
+    border: 3px solid var(--black-stroke);
+    background-color: rgba(0,0,0,0.1);
+}
+
+.partnership-slides {
+    display: flex;
+}
+
+.partnership-slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 2.5em; /* CHANGED: Slightly increased padding */
+    display: none; /* JS will toggle .active to display: flex */
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: var(--text-light);
+    color: var(--text-dark);
+}
+
+.partnership-slide.active {
+    display: flex;
+    animation: fadeInSlider 0.6s ease-in-out;
+}
+
+@keyframes fadeInSlider {
+    from { opacity: 0.3; transform: scale(0.98); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+
+.slide-image-container {
+    width: 100%;
+    max-width: 650px; /* CHANGED: Increased from 450px to make image larger */
+    margin-top: 2em; /* CHANGED: Increased margin */
+    border-radius: var(--border-radius-game);
+    overflow: hidden;
+    border: 2px solid rgba(0,0,0,0.1);
+    order: 2; /* Image after text */
+}
+
+.slide-image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.slide-text-content {
+    max-width: 600px;
+    order: 1; /* Text before image */
+}
+
+.slide-icon {
+    font-size: 2.5rem;
+    color: var(--blyza-orange-primary);
+    margin-bottom: 0.5em;
+}
+
+.slide-text-content h3 {
+    font-family: var(--font-heading-alt);
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    margin-bottom: 0.5em;
+    color: var(--text-dark);
+}
+
+.slide-text-content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-medium);
+    margin-bottom: 0;
+}
+
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    padding: 0;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.slider-nav:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+    transform: translateY(-50%) scale(1.1);
+}
+.slider-nav.prev {
+    left: 15px;
+}
+.slider-nav.next {
+    right: 15px;
+}
+
+.slider-dots {
+    text-align: center;
+    padding: 10px 0 15px 0;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+.slider-dots .dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: 1px solid rgba(0,0,0,0.2);
+}
+.slider-dots .dot:hover {
+    transform: scale(1.2);
+}
+.slider-dots .dot.active {
+    background-color: var(--blyza-sunny-yellow);
+    transform: scale(1.1);
+    border-color: var(--black-stroke);
+}
+
+/* Responsive adjustments for slider */
+@media (max-width: 767.98px) {
+    .partnership-slide {
+        padding: 1.5em;
+    }
+    .slide-image-container {
+        margin-top: 1.5em; /* Adjusted margin */
+        max-width: 100%;
+    }
+    .slide-icon {
+        font-size: 2rem;
+    }
+    .slide-text-content h3 {
+        font-size: clamp(1.2rem, 4vw, 1.6rem);
+    }
+    .slider-nav {
+        width: 38px;
+        height: 38px;
+        font-size: 1rem;
+    }
+    .slider-nav.prev {
+        left: 10px;
+    }
+    .slider-nav.next {
+        right: 10px;
+    }
+    .slider-dots {
+        padding-bottom: 10px;
+    }
+    .slider-dots .dot {
+        height: 10px;
+        width: 10px;
+    }
+}
+
+/* Brands Page Helper/Override Styles */
+#main-header .logo.header-logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+#main-header .logo.header-logo-link .logo-img {
+    height: 40px; /* Reduced logo height in header */
+    margin-right: 8px; /* Adjusted margin */
+}
+#main-header .logo.header-logo-link .logo-text {
+    font-family: var(--font-logo);
+    font-size: 2.2rem; /* Slightly reduced logo text */
+    color: var(--text-light);
+    line-height: 1;
+    -webkit-text-stroke: 1.2px var(--black-stroke); /* Slightly thinner stroke */
+    text-stroke: 1.2px var(--black-stroke);
+}
+
+#main-header .nav-links .nav-link-button.active {
+    background-color: var(--blyza-sunny-yellow);
+    color: var(--text-dark);
+    border-color: var(--black-stroke);
+    box-shadow: 2px 2px 0 var(--black-stroke);
+}
+
+.footer-column .email-link-footer {
+    color: var(--blyza-sunny-yellow);
+    display: block;
+    margin-top: 0.5em;
+    font-weight: 500;
+}
+.footer-column .email-link-footer:hover {
+    text-decoration: underline;
+    color: var(--blyza-keppel-accent);
+}

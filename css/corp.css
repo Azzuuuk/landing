@@ -1,0 +1,381 @@
+/* ============================================= */
+/* --- Corporate Page Specific Styles --- */
+/* ============================================= */
+
+:root {
+    --blyza-orange-primary: #FF8833;
+    --blyza-purple-secondary: #cb7ae1;
+    --blyza-keppel-accent: #00BFA6;
+    --blyza-sunny-yellow: #FFDF00;
+    --darker-grey-bg: #33373d;
+    --text-light: #FDFEFE;
+    --text-dark: #2C3A47;
+    --text-medium: #535c68;
+    --black-stroke: #1A1A1A;
+    --nav-height: 60px;
+    --border-radius-game: 12px;
+    --shadow-chunky: 4px 4px 0px var(--black-stroke);
+}
+
+/* --- General Page Structure --- */
+#main-header {
+    height: var(--nav-height);
+}
+#main-header nav.container {
+    height: 100%;
+}
+
+#main-header .logo.header-logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+#main-header .logo.header-logo-link .logo-img {
+    height: 40px;
+    margin-right: 8px;
+}
+#main-header .logo.header-logo-link .logo-text {
+    font-family: var(--font-logo);
+    font-size: 2.2rem;
+    color: var(--text-light);
+    line-height: 1;
+    -webkit-text-stroke: 1.2px var(--black-stroke);
+    text-stroke: 1.2px var(--black-stroke);
+}
+
+#main-header .nav-links .nav-link-button.active {
+    background-color: var(--blyza-sunny-yellow);
+    color: var(--text-dark);
+    border-color: var(--black-stroke);
+    box-shadow: 2px 2px 0 var(--black-stroke);
+}
+
+
+.page-hero {
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-light);
+    padding-top: var(--nav-height);
+}
+
+/* --- Corp Hero Section (#corp-hero) --- */
+#corp-hero {
+    background-color: var(--blyza-orange-primary);
+}
+
+#corp-hero h1 {
+    margin-top: 100px;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    -webkit-text-stroke-width: 1.5px;
+    text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: var(--black-stroke);
+    text-stroke-color: var(--black-stroke);
+    margin-bottom: 0.3em;
+    color: var(--text-light);
+}
+#corp-hero h1 .highlight-section-theme {
+    color: var(--blyza-keppel-accent);
+}
+
+#corp-hero .subtext {
+    font-size: clamp(1.1rem, 2.2vw, 1.4rem); /* Slightly larger */
+    font-weight: 600; /* Bolder text */
+    color: rgba(255, 255, 255, 1); /* Full white for clarity */
+  
+   margin-bottom: 45px;
+    margin-right: 25px;
+    margin-left: 55px;
+    letter-spacing: 0.3px;
+}
+
+/* --- "Why Blyza for Corporate?" Section (#why-blyza-corporate) --- */
+#why-blyza-corporate {
+    background-color: var(--blyza-purple-secondary);
+    color: var(--text-light);
+}
+#why-blyza-corporate .section-header h2 {
+    color: var(--text-light);
+    -webkit-text-stroke-color: var(--black-stroke);
+    text-stroke-color: var(--black-stroke);
+}
+#why-blyza-corporate .section-header h2 .highlight-section-theme {
+    color: var(--blyza-orange-primary);
+}
+
+/* --- MODIFIED --- */
+/* This is the new style for the intro paragraph in the "Why Blyza" corporate section. */
+/* It creates a "dialog box" effect that matches your brand identity. */
+#why-blyza-corporate .section-intro {
+    background-color: rgba(0, 0, 0, 0.2); /* Darkens the purple bg for contrast */
+    color: var(--text-light); /* Fully opaque white for clarity */
+    padding: 1.5em 2em;
+    border-radius: var(--border-radius-game);
+    border: 2px solid var(--black-stroke);
+    box-shadow: var(--shadow-chunky);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 4.5em;
+    font-size: 1.1rem; /* Slightly larger */
+    font-weight: 500; /* Bolder for impact */
+    line-height: 1.6;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.4); /* Subtle shadow for pop */
+    transform: rotate(-1deg); /* Playful tilt to match the funky vibe */
+}
+
+
+@media (min-width: 768px) {
+    #why-blyza-corporate .features-as-powerups .powerup-card:last-child {
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: calc(50% - 1.25em);
+    }
+}
+
+#why-blyza-corporate .powerup-card {
+    background: linear-gradient(145deg, #fdfefe, #e9ecef);
+    border: 3px solid var(--text-dark);
+    box-shadow: var(--shadow-chunky);
+    color: var(--text-dark);
+}
+#why-blyza-corporate .powerup-card:hover {
+    box-shadow: 6px 6px 0 var(--blyza-orange-primary);
+    border-color: var(--blyza-orange-primary);
+    transform: translateY(-5px) rotate(1deg);
+}
+#why-blyza-corporate .powerup-text h3 {
+    color: var(--darker-grey-bg);
+}
+#why-blyza-corporate .powerup-text p {
+    color: var(--text-medium);
+}
+#why-blyza-corporate .powerup-icon-container {
+    background-color: var(--blyza-orange-primary);
+    color: var(--text-light);
+    border-color: var(--black-stroke);
+}
+#why-blyza-corporate .powerup-badge {
+    background-color: var(--blyza-keppel-accent);
+    color: var(--text-light);
+    border-color: var(--black-stroke);
+}
+
+
+/* --- "Our Corporate Offerings" Section (#corporate-offerings-section) --- */
+#corporate-offerings-section {
+    background-color: var(--darker-grey-bg);
+    color: var(--text-light);
+}
+#corporate-offerings-section .section-header h2 {
+    color: var(--text-light);
+}
+#corporate-offerings-section .section-header h2 .highlight-section-theme {
+    color: var(--blyza-orange-primary);
+}
+
+
+/* ============================================= */
+/* --- Partnership/Offerings Slider --- */
+/* ============================================= */
+.partnership-slider-container {
+    position: relative;
+    max-width: 950px;
+    margin: 2em auto;
+    overflow: hidden;
+    border-radius: var(--border-radius-game);
+    box-shadow: var(--shadow-chunky);
+    border: 3px solid var(--black-stroke);
+    background-color: rgba(0,0,0,0.1);
+}
+
+.partnership-slides {
+    display: flex;
+}
+
+.partnership-slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 2.5em;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: var(--text-light);
+    color: var(--text-dark);
+}
+
+.partnership-slide.active {
+    display: flex;
+    animation: fadeInSlider 0.6s ease-in-out;
+}
+
+@keyframes fadeInSlider {
+    from { opacity: 0.3; transform: scale(0.98); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.slide-image-container {
+    width: 100%;
+    max-width: 650px;
+    margin-top: 2em;
+    border-radius: var(--border-radius-game);
+    overflow: hidden;
+    border: 2px solid rgba(0,0,0,0.1);
+}
+.slide-image-container img { width: 100%; height: auto; display: block; object-fit: cover; }
+
+.slide-text-content {
+    max-width: 600px;
+}
+
+.slide-icon {
+    font-size: 2.5rem;
+    color: var(--blyza-orange-primary);
+    margin-bottom: 0.5em;
+}
+
+.slide-text-content h3 {
+    font-family: var(--font-heading-alt);
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    margin-bottom: 0.5em;
+    color: var(--text-dark);
+}
+
+.slide-text-content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-medium);
+    margin-bottom: 0;
+}
+
+.slider-nav {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.4); color: white;
+    border: none; padding: 0; font-size: 1.2rem; cursor: pointer;
+    z-index: 10; border-radius: 50%; width: 45px; height: 45px;
+    display: flex; align-items: center; justify-content: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.slider-nav:hover { background-color: rgba(0, 0, 0, 0.7); transform: translateY(-50%) scale(1.1); }
+.slider-nav.prev { left: 15px; }
+.slider-nav.next { right: 15px; }
+
+.slider-dots {
+    text-align: center; padding: 10px 0 15px 0;
+    position: absolute; bottom: 5px; left: 50%;
+    transform: translateX(-50%); z-index: 10;
+}
+.slider-dots .dot {
+    height: 12px; width: 12px; margin: 0 5px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 50%; display: inline-block; cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: 1px solid rgba(0,0,0,0.2);
+}
+.slider-dots .dot:hover { transform: scale(1.2); }
+.slider-dots .dot.active {
+    background-color: var(--blyza-sunny-yellow);
+    transform: scale(1.1); border-color: var(--black-stroke);
+}
+
+@media (max-width: 767.98px) {
+    .partnership-slide { padding: 1.5em; }
+    .slide-icon { font-size: 2rem; }
+    .slide-text-content h3 { font-size: clamp(1.2rem, 4vw, 1.6rem); }
+    .slider-nav { width: 38px; height: 38px; font-size: 1rem; }
+    .slider-nav.prev { left: 10px; }
+    .slider-nav.next { right: 10px; }
+    .slider-dots { padding-bottom: 10px; }
+    .slider-dots .dot { height: 10px; width: 10px; }
+}
+
+
+/* --- "Contact Corporate" CTA Section (#contact-corporate) --- */
+#contact-corporate {
+    background-color: var(--blyza-keppel-accent);
+    text-align: center;
+    padding: 60px 20px;
+}
+#contact-corporate h3 {
+    font-family: var(--font-logo);
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: var(--text-light);
+    -webkit-text-stroke: 1.5px var(--black-stroke);
+    text-stroke: 1.5px var(--black-stroke);
+    margin-bottom: 0.5em;
+}
+#contact-corporate h3 .highlight-section-theme {
+    color: var(--blyza-orange-primary);
+}
+
+/* --- MODIFIED --- */
+/* This is the new style for the subtext in the corporate contact section. */
+/* It's larger, bolder, and has a subtle chunky shadow for clarity and brand alignment. */
+#contact-corporate p {
+    color: var(--text-light); /* Changed to full white for clarity */
+    margin-bottom: 2em; /* Increased space before the button */
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.15rem; /* Larger and clearer */
+    font-weight: 500; /* Bolder for impact */
+    line-height: 1.6;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.25); /* Subtle, dark, chunky-style shadow */
+}
+
+#contact-corporate .btn-retro-game i {
+    margin-left: 0.5em;
+}
+
+#contact-corporate .btn-retro-game:hover {
+    background-color: var(--blyza-orange-primary);
+    color: var(--text-dark);
+}
+
+
+/* --- SVG Background Pattern --- */
+.section-bg-pattern {
+    position: absolute; top:0; left:0; width:100%; height:100%;
+    z-index:0; background-repeat: repeat;
+    background-size: 150px 150px; opacity: 0.06;
+    pointer-events: none;
+}
+.new-blyza-pattern-light-on-dark {
+    background-image: url('https://static.wixstatic.com/shapes/9ce3e5_3f923a48906648688fec5ea31b51f1f3.svg');
+    background-size: 120px;
+}
+.new-blyza-pattern-dark-on-light {
+    background-image: url('https://static.wixstatic.com/shapes/9ce3e5_3f923a48906648688fec5ea31b51f1f3.svg');
+    filter: invert(1) contrast(0.7) opacity(0.7);
+    background-size: 100px;
+}
+
+/* Footer email link styling */
+.footer-column .email-link-footer {
+    color: var(--blyza-sunny-yellow); display: block;
+    margin-top: 0.5em; font-weight: 500;
+    text-decoration: none;
+}
+.footer-column .email-link-footer:hover {
+    text-decoration: underline; color: var(--blyza-keppel-accent);
+}
+
+/* --- Mobile Adjustments --- */
+@media (max-width: 767.98px) {
+    :root { --nav-height: 55px; }
+
+    #main-header .logo.header-logo-link .logo-img { height: 38px; }
+    #main-header .logo.header-logo-link .logo-text { font-size: 2rem; }
+
+    #corp-hero { min-height: 35vh; }
+    #corp-hero h1 { margin-top: 10px; font-size: clamp(2rem, 6vw, 2.8rem); }
+
+    .offering-card { padding: 1.5em; }
+    .offering-card-content h3 { font-size: clamp(1.3rem, 3.5vw, 1.6rem); }
+
+    #contact-corporate h3 { font-size: clamp(1.6rem, 5vw, 2.2rem); }
+}

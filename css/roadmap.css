@@ -1,0 +1,177 @@
+/* ============================================= */
+/* --- Roadmap Page Specific Styles --- */
+/* ============================================= */
+
+:root {
+    --blyza-orange-primary: #FF8833;
+    --blyza-purple-secondary: #cb7ae1;
+    --blyza-keppel-accent: #00BFA6;
+    --blyza-sunny-yellow: #FFDF00;
+    --darker-grey-bg: #33373d;
+    --text-light: #FDFEFE;
+    --text-dark: #2C3A47;
+    --text-medium: #535c68;
+    --black-stroke: #1A1A1A;
+}
+
+/* --- Hero Section --- */
+#roadmap-hero {
+    background-color: var(--blyza-orange-primary); 
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-light);
+    padding-top: 135px;/* Purple theme for roadmap */
+}
+#roadmap-hero h1 .highlight-section-theme {
+    color: var(--blyza-keppel-accent);
+    
+}
+
+/* --- Main Content Section (Timeline) --- */
+#roadmap-content {
+    background-color: var(--darker-grey-bg);
+}
+
+.new-blyza-pattern-dark-on-light {
+    background-image: url('https://static.wixstatic.com/shapes/9ce3e5_3f923a48906648688fec5ea31b51f1f3.svg');
+    filter: invert(1) contrast(0.7) opacity(0.7);
+    background-size: 100px;
+    opacity: 0.05;
+}
+
+/* --- Timeline Styles --- */
+.roadmap-timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+/* The vertical line */
+.roadmap-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, var(--blyza-orange-primary), var(--blyza-keppel-accent));
+    margin-left: -2px;
+    border-radius: 4px;
+    z-index: 1;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+/* Align items to the left and right */
+.timeline-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+}
+.timeline-item:nth-child(even) {
+    left: 50%;
+    text-align: left;
+}
+
+/* The checkpoint icon on the line */
+.timeline-icon {
+    position: absolute;
+    top: 30px;
+    z-index: 2;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--blyza-orange-primary);
+    border: 3px solid var(--black-stroke);
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.timeline-item:nth-child(odd) .timeline-icon {
+    right: -25px; /* (width/2) */
+}
+.timeline-item:nth-child(even) .timeline-icon {
+    left: -25px; /* (width/2) */
+}
+
+/* The content card */
+.timeline-content {
+    padding: 1.5em;
+    background: linear-gradient(145deg, #fdfefe, #e9ecef);
+    color: var(--text-dark);
+    border-radius: var(--border-radius-game);
+    border: 3px solid var(--text-dark);
+    box-shadow: var(--shadow-chunky);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.timeline-content h3 {
+    font-family: var(--font-heading-alt);
+    font-size: clamp(1.4rem, 3vw, 1.7rem);
+    color: var(--text-dark);
+    margin-bottom: 0.5em;
+}
+.timeline-content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-medium);
+}
+
+/* Hover effects */
+.timeline-item:hover .timeline-icon {
+    background-color: var(--blyza-keppel-accent);
+    transform: scale(1.1);
+}
+.timeline-item:hover .timeline-content {
+    transform: translateY(-5px);
+    box-shadow: 6px 6px 0px var(--blyza-orange-primary);
+    border-color: var(--blyza-orange-primary);
+}
+
+
+/* --- CTA Section --- */
+#contact-roadmap {
+    background-color: var(--blyza-keppel-accent);
+    text-align: center; /* MODIFIED: This line centers the content */
+}
+#contact-roadmap h3 .highlight-section-theme {
+    color: var(--blyza-sunny-yellow);
+}
+#contact-roadmap .btn-retro-game:hover {
+    background-color: var(--blyza-orange-primary);
+    color: var(--text-dark);
+}
+
+/* --- Mobile Responsive Timeline --- */
+@media screen and (max-width: 767.98px) {
+    .roadmap-timeline::before {
+        left: 30px; /* Move line to the left */
+    }
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px; /* Space for the line and icon */
+        padding-right: 20px;
+        text-align: left; /* All text aligns left */
+    }
+    .timeline-item:nth-child(even) {
+        left: 0; /* Stack all items */
+    }
+    .timeline-icon {
+        left: 5px; /* Position icon relative to the new line */
+    }
+    .timeline-item:nth-child(odd) .timeline-icon {
+        right: auto;
+        left: 5px;
+    }
+}
