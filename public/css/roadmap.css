@@ -12,34 +12,53 @@
     --text-dark: #2C3A47;
     --text-medium: #535c68;
     --black-stroke: #1A1A1A;
+    --nav-height: 60px; /* Assuming desktop nav height */
+    --border-radius-game: 12px;
+    --shadow-chunky: 4px 4px 0px var(--black-stroke);
 }
 
 /* --- Hero Section --- */
 #roadmap-hero {
-    background-color: var(--blyza-orange-primary); 
-    height: 50vh;
+    background-color: var(--blyza-orange-primary);
+    min-height: 40vh; /* Use min-height for flexibility */
     display: flex;
+    flex-direction: column; /* Stack content vertically */
     align-items: center;
     justify-content: center;
     text-align: center;
     color: var(--text-light);
-    padding-top: 135px;/* Purple theme for roadmap */
+    /* Use flexible padding that accounts for the header */
+    padding: var(--nav-height) 20px 40px; 
 }
+
+#roadmap-hero h1 {
+    /* No margin-top needed, flexbox handles centering */
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: var(--black-stroke);
+    text-stroke: 1.5px var(--black-stroke);
+    color: var(--text-light);
+}
+
 #roadmap-hero h1 .highlight-section-theme {
     color: var(--blyza-keppel-accent);
-    
 }
 
 /* --- Main Content Section (Timeline) --- */
 #roadmap-content {
     background-color: var(--darker-grey-bg);
+    position: relative; /* Needed for the pattern */
+    z-index: 1;
 }
 
 .new-blyza-pattern-dark-on-light {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
     background-image: url('https://static.wixstatic.com/shapes/9ce3e5_3f923a48906648688fec5ea31b51f1f3.svg');
     filter: invert(1) contrast(0.7) opacity(0.7);
     background-size: 100px;
     opacity: 0.05;
+    z-index: -1; /* Place it behind the content */
 }
 
 /* --- Timeline Styles --- */
@@ -143,7 +162,7 @@
 /* --- CTA Section --- */
 #contact-roadmap {
     background-color: var(--blyza-keppel-accent);
-    text-align: center; /* MODIFIED: This line centers the content */
+    text-align: center;
 }
 #contact-roadmap h3 .highlight-section-theme {
     color: var(--blyza-sunny-yellow);
@@ -155,23 +174,39 @@
 
 /* --- Mobile Responsive Timeline --- */
 @media screen and (max-width: 767.98px) {
+    /* === HERO SECTION FIX === */
+    #roadmap-hero {
+        min-height: 30vh; /* Reduce height on mobile */
+        padding-top: calc(var(--nav-height) + 20px); /* Adjust padding for mobile nav */
+    }
+    
+    /* === TIMELINE FIXES === */
     .roadmap-timeline::before {
         left: 30px; /* Move line to the left */
     }
+    
     .timeline-item {
         width: 100%;
         padding-left: 70px; /* Space for the line and icon */
         padding-right: 20px;
         text-align: left; /* All text aligns left */
     }
+    
     .timeline-item:nth-child(even) {
         left: 0; /* Stack all items */
     }
+
     .timeline-icon {
-        left: 5px; /* Position icon relative to the new line */
-    }
-    .timeline-item:nth-child(odd) .timeline-icon {
-        right: auto;
+        /* This positions the icon correctly on the 30px line */
+        /* Calculation: 30px (line position) - 25px (half of icon width) = 5px */
         left: 5px;
+    }
+
+    /* This rule ensures BOTH odd and even icons are aligned correctly,
+       overriding any desktop-specific 'right' or 'left' positioning. */
+    .timeline-item:nth-child(odd) .timeline-icon,
+    .timeline-item:nth-child(even) .timeline-icon {
+        left: 5px; 
+        right: auto;
     }
 }

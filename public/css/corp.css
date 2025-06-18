@@ -52,13 +52,14 @@
 
 
 .page-hero {
-    height: 40vh;
+    min-height: 40vh; /* Changed to min-height for flexibility */
     display: flex;
+    flex-direction: column; /* Allows h1 and subtext to stack */
     align-items: center;
     justify-content: center;
     text-align: center;
     color: var(--text-light);
-    padding-top: var(--nav-height);
+    padding: var(--nav-height) 20px 20px; /* Adjusted padding */
 }
 
 /* --- Corp Hero Section (#corp-hero) --- */
@@ -66,8 +67,8 @@
     background-color: var(--blyza-orange-primary);
 }
 
+/* === THIS SECTION IS FIXED === */
 #corp-hero h1 {
-    margin-top: 100px;
     font-size: clamp(2.2rem, 5vw, 3.5rem);
     -webkit-text-stroke-width: 1.5px;
     text-stroke-width: 1.5px;
@@ -75,21 +76,23 @@
     text-stroke-color: var(--black-stroke);
     margin-bottom: 0.3em;
     color: var(--text-light);
+    margin-top: 0; /* REMOVED fixed margin-top */
 }
 #corp-hero h1 .highlight-section-theme {
     color: var(--blyza-keppel-accent);
 }
 
 #corp-hero .subtext {
-    font-size: clamp(1.1rem, 2.2vw, 1.4rem); /* Slightly larger */
-    font-weight: 600; /* Bolder text */
-    color: rgba(255, 255, 255, 1); /* Full white for clarity */
-  
-   margin-bottom: 45px;
-    margin-right: 25px;
-    margin-left: 55px;
+    font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+    font-weight: 600;
+    color: rgba(255, 255, 255, 1);
     letter-spacing: 0.3px;
+    /* ADDED max-width and REPLACED specific margins with auto for centering */
+    max-width: 750px;
+    margin: 0.2em auto 0; 
 }
+/* ============================= */
+
 
 /* --- "Why Blyza for Corporate?" Section (#why-blyza-corporate) --- */
 #why-blyza-corporate {
@@ -105,12 +108,9 @@
     color: var(--blyza-orange-primary);
 }
 
-/* --- MODIFIED --- */
-/* This is the new style for the intro paragraph in the "Why Blyza" corporate section. */
-/* It creates a "dialog box" effect that matches your brand identity. */
 #why-blyza-corporate .section-intro {
-    background-color: rgba(0, 0, 0, 0.2); /* Darkens the purple bg for contrast */
-    color: var(--text-light); /* Fully opaque white for clarity */
+    background-color: rgba(0, 0, 0, 0.2);
+    color: var(--text-light);
     padding: 1.5em 2em;
     border-radius: var(--border-radius-game);
     border: 2px solid var(--black-stroke);
@@ -119,11 +119,11 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 4.5em;
-    font-size: 1.1rem; /* Slightly larger */
-    font-weight: 500; /* Bolder for impact */
+    font-size: 1.1rem;
+    font-weight: 500;
     line-height: 1.6;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.4); /* Subtle shadow for pop */
-    transform: rotate(-1deg); /* Playful tilt to match the funky vibe */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+    transform: rotate(-1deg);
 }
 
 
@@ -312,19 +312,16 @@
     color: var(--blyza-orange-primary);
 }
 
-/* --- MODIFIED --- */
-/* This is the new style for the subtext in the corporate contact section. */
-/* It's larger, bolder, and has a subtle chunky shadow for clarity and brand alignment. */
 #contact-corporate p {
-    color: var(--text-light); /* Changed to full white for clarity */
-    margin-bottom: 2em; /* Increased space before the button */
+    color: var(--text-light);
+    margin-bottom: 2em;
     max-width: 650px;
     margin-left: auto;
     margin-right: auto;
-    font-size: 1.15rem; /* Larger and clearer */
-    font-weight: 500; /* Bolder for impact */
+    font-size: 1.15rem;
+    font-weight: 500;
     line-height: 1.6;
-    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.25); /* Subtle, dark, chunky-style shadow */
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.25);
 }
 
 #contact-corporate .btn-retro-game i {
@@ -371,8 +368,8 @@
     #main-header .logo.header-logo-link .logo-img { height: 38px; }
     #main-header .logo.header-logo-link .logo-text { font-size: 2rem; }
 
-    #corp-hero { min-height: 35vh; }
-    #corp-hero h1 { margin-top: 10px; font-size: clamp(2rem, 6vw, 2.8rem); }
+    #corp-hero h1 { font-size: clamp(2rem, 6vw, 2.8rem); }
+    .page-hero { min-height: 35vh; } /* Added to ensure consistent hero height on mobile */
 
     .offering-card { padding: 1.5em; }
     .offering-card-content h3 { font-size: clamp(1.3rem, 3.5vw, 1.6rem); }

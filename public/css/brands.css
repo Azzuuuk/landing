@@ -66,16 +66,17 @@
     color: var(--blyza-keppel-accent); /* Keppel Accent highlight */
 }
 
+/* === THIS SECTION IS FIXED === */
 #brands-hero .subtext {
     font-size: clamp(1.1rem, 2.2vw, 1.4rem); /* Slightly larger */
     font-weight: 600; /* Bolder text */
     color: rgba(255, 255, 255, 1); /* Full white for clarity */
     max-width: 700px;
-    margin-top: 0.2em;
-    margin-left: 70px;
     letter-spacing: 0.3px;
-    
+    /* This combination of max-width and margin: auto centers the element */
+    margin: 0.2em auto 0; 
 }
+/* ============================= */
 
 /* "Why Advertise with Blyza?" section */
 #why-blyza {
