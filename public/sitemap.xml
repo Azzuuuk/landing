@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://joinblyza.com/</loc>
+    <lastmod>2025-06-18</lastmod>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://joinblyza.com/pages/brands.html</loc>
+    <lastmod>2025-06-18</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://joinblyza.com/pages/corp.html</loc>
+    <lastmod>2025-06-18</lastmod>
+    <priority>0.80</priority>
+  </url>
+   <url>
+    <loc>https://joinblyza.com/pages/roadmap.html</loc>
+    <lastmod>2025-06-18</lastmod>
+    <priority>0.80</priority>
+  </url>
+</urlset>

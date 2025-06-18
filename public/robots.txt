@@ -1,0 +1,6 @@
+# Tell all search engine bots that they can crawl the whole site.
+User-agent: *
+Allow: /
+
+# Provide the location of your sitemap file
+Sitemap: https://joinblyza.com/sitemap.xml
