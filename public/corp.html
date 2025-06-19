@@ -130,7 +130,7 @@
                                 <p>Get custom-branded game packs tailored to your company. You get the fun of Blyza to run on your own schedule, whenever your team needs a boost.</p>
                             </div>
                             <div class="slide-image-container">
-                                <img src="https://static.wixstatic.com/media/9ce3e5_d7d91a5eeb7944a39f5e1a45930c7f98~mv2.png" alt="A personalized game pack with company branding">
+                                <img src="https://static.wixstatic.com/media/9ce3e5_74189751a72e4f9d9ef28b3f50649686~mv2.png" alt="A personalized game pack with company branding">
                             </div>
                         </div>
                         <!-- Slide 3 -->
@@ -141,7 +141,7 @@
                                 <p>Add a unique, interactive spark to your corporate events, conferences, or holiday parties. Blyza is the ultimate icebreaker and crowd-pleaser.</p>
                             </div>
                             <div class="slide-image-container">
-                                <img src="https://via.placeholder.com/650x366/FF8833/fff?text=Event+Entertainment" alt="A lively corporate event featuring Blyza games">
+                                <img src="https://static.wixstatic.com/media/9ce3e5_3094f4633f744fc4a57f33b7293ca179~mv2.png" alt="A lively corporate event featuring Blyza games">
                             </div>
                         </div>
                     </div>
@@ -156,14 +156,33 @@
 
         <section id="contact-corporate" class="cta-section section-funky">
             <div class="container aos-fade-in" data-aos-delay="200">
-                <h3>Invest in Your Team's <span class="highlight-section-theme">Success?</span></h3>
+                <h3>Invest in Your Team's <span class="highlight-section-theme">Success</span></h3>
                 <p>Let's build a more connected and motivated team together. Contact us to create a fun, effective, and custom experience for your organization.</p>
-                <a href="mailto:corporate@blyza.com" class="btn btn-retro-game">
+                <!-- === MODIFIED BUTTON === -->
+                <button id="corp-contact-trigger" class="btn btn-retro-game">
                     <span class="btn-text">Book a Consultation <i class="fas fa-calendar-check"></i></span>
-                </a>
+                </button>
             </div>
         </section>
     </main>
+
+    <!-- === NEW CORPORATE CONTACT POPUP MODAL === -->
+    <div id="corp-contact-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">×</span>
+            <h3>Let's Connect!</h3>
+            <p>Reach out to our corporate team to plan your next event.</p>
+            <div class="email-copy-container">
+                <input type="text" value="corporate@blyza.com" id="corporate-email" readonly>
+                <button id="corp-copy-email-btn" class="btn-copy">
+                    <i class="fas fa-copy"></i>
+                    <span class="copy-text">Copy</span>
+                </button>
+            </div>
+            <div id="corp-copy-success-message" class="copy-success">Email Copied!</div>
+        </div>
+    </div>
+    <!-- === END OF MODAL === -->
 
     <footer id="footer-gamified">
         <div class="container">
@@ -186,7 +205,7 @@
                 <div class="footer-column aos-fade-in" data-aos-delay="300">
                     <h4>Support</h4>
                      <ul>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="mailto:contact@playblyza.com">Contact Ops</a></li>
                     </ul>
                 </div>
                 <div class="footer-column footer-social-column aos-fade-in" data-aos-delay="400">
@@ -197,7 +216,6 @@
                         <a href="https://www.tiktok.com/@playblyza?_t=ZN-8xJdfT2mjdm&_r=1" aria-label="Tiktok"><i class="fab fa-tiktok"></i></a>
                         <a href="https://www.youtube.com/@PlayBlyza" aria-label="Youtube"><i class="fab fa-youtube"></i></a>
                     </div>
-                    <p><a href="mailto:corporate@blyza.com" class="email-link-footer">corporate@blyza.com</a></p>
                 </div>
             </div>
             <div class="footer-bottom-text aos-fade-in" data-aos-delay="500">
@@ -208,5 +226,80 @@
 
     <script src="js/script.js"></script>
     <script src="js/brands-slider.js"></script>
+
+    <!-- === NEW SCRIPT FOR CORPORATE CONTACT MODAL === -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Corporate Contact Modal Logic ---
+            const corpModal = document.getElementById('corp-contact-modal');
+            const corpTriggerBtn = document.getElementById('corp-contact-trigger');
+            
+            if (corpModal && corpTriggerBtn) {
+                const corpCloseBtn = corpModal.querySelector('.close-button');
+                const corpCopyBtn = document.getElementById('corp-copy-email-btn');
+                const corpEmailInput = document.getElementById('corporate-email');
+                const corpCopySuccessMsg = document.getElementById('corp-copy-success-message');
+
+                // Function to open the modal
+                const openCorpModal = () => {
+                    corpModal.classList.add('show');
+                    document.body.style.overflow = 'hidden'; 
+                };
+
+                // Function to close the modal
+                const closeCorpModal = () => {
+                    corpModal.classList.remove('show');
+                    document.body.style.overflow = '';
+                    // Reset copy button feedback
+                    corpCopySuccessMsg.classList.remove('visible');
+                    const copyTextSpan = corpCopyBtn.querySelector('.copy-text');
+                    if (copyTextSpan) copyTextSpan.textContent = 'Copy';
+                    const icon = corpCopyBtn.querySelector('i');
+                     if(icon) {
+                        icon.classList.remove('fa-check');
+                        icon.classList.add('fa-copy');
+                    }
+                };
+
+                // Event Listeners
+                corpTriggerBtn.addEventListener('click', openCorpModal);
+                corpCloseBtn.addEventListener('click', closeCorpModal);
+
+                corpModal.addEventListener('click', (event) => {
+                    if (event.target === corpModal) {
+                        closeCorpModal();
+                    }
+                });
+
+                document.addEventListener('keydown', (event) => {
+                    if (event.key === 'Escape' && corpModal.classList.contains('show')) {
+                        closeCorpModal();
+                    }
+                });
+
+                // Copy to clipboard functionality
+                corpCopyBtn.addEventListener('click', () => {
+                    corpEmailInput.select();
+                    corpEmailInput.setSelectionRange(0, 99999);
+
+                    navigator.clipboard.writeText(corpEmailInput.value).then(() => {
+                        corpCopySuccessMsg.classList.add('visible');
+                        const copyTextSpan = corpCopyBtn.querySelector('.copy-text');
+                        if (copyTextSpan) copyTextSpan.textContent = 'Copied!';
+                        const icon = corpCopyBtn.querySelector('i');
+                         if(icon) {
+                           icon.classList.remove('fa-copy');
+                           icon.classList.add('fa-check');
+                        }
+                        
+                        setTimeout(closeCorpModal, 2500);
+                    }).catch(err => {
+                        console.error('Failed to copy text: ', err);
+                        alert('Failed to copy email. Please copy it manually.');
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>

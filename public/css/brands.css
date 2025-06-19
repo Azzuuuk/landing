@@ -444,3 +444,165 @@
     text-decoration: underline;
     color: var(--blyza-keppel-accent);
 }
+
+/* ============================================= */
+/* --- NEW: Contact Popup Modal Styles --- */
+/* ============================================= */
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1001; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(30, 30, 40, 0.85); /* Dark semi-transparent BG */
+    backdrop-filter: blur(8px);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.show {
+    display: flex; /* Use flexbox for centering */
+    animation: fadeInModalBg 0.4s ease;
+}
+
+@keyframes fadeInModalBg {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background: var(--darker-grey-bg);
+    color: var(--text-light);
+    margin: auto;
+    padding: 2.5em;
+    border: 4px solid var(--black-stroke);
+    border-radius: var(--border-radius-game);
+    box-shadow: 4px 4px 0px rgba(255,255,255,0.3); /* Chunky light shadow */
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    text-align: center;
+    transform: scale(0.7);
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease;
+}
+
+.modal.show .modal-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.modal-content h3 {
+    font-family: var(--font-logo);
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    color: var(--blyza-sunny-yellow);
+    -webkit-text-stroke: 1.5px var(--black-stroke);
+    text-stroke: 1.5px var(--black-stroke);
+    margin-bottom: 0.5em;
+}
+
+.modal-content p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.05rem;
+    margin-bottom: 1.8em;
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--text-light);
+    text-decoration: none;
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.email-copy-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 8px;
+    border: 2px solid var(--black-stroke);
+    overflow: hidden; /* To keep rounded corners on children */
+}
+
+.email-copy-container input[type="text"] {
+    flex-grow: 1;
+    border: none;
+    background: transparent;
+    color: var(--text-light);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.8em 1em;
+    outline: none;
+    text-align: center;
+    min-width: 0; /* Important for flexbox shrinking */
+}
+
+.btn-copy {
+    background-color: var(--blyza-sunny-yellow);
+    color: var(--text-dark);
+    border: none;
+    border-left: 2px solid var(--black-stroke);
+    padding: 0.8em 1.2em;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: var(--font-heading-alt);
+    transition: background-color 0.3s ease;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.btn-copy:hover {
+    background-color: var(--blyza-keppel-accent);
+}
+
+.copy-success {
+    color: var(--blyza-keppel-accent);
+    font-weight: 600;
+    margin-top: 1em;
+    height: 1.2em; /* Reserve space to prevent layout shift */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.copy-success.visible {
+    opacity: 1;
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        padding: 2em 1.5em;
+    }
+    .email-copy-container {
+        flex-direction: column;
+    }
+    .email-copy-container input[type="text"] {
+        text-align: center;
+        padding: 0.8em;
+    }
+    .btn-copy {
+        border-left: none;
+        border-top: 2px solid var(--black-stroke);
+        justify-content: center;
+    }
+}

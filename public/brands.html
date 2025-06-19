@@ -128,7 +128,7 @@
                                 <p>Feature your brand as the theme or sponsor of specific games or rounds. Imagine players interacting directly with your brand in a playful context.</p>
                             </div>
                             <div class="slide-image-container">
-                                <img src="https://static.wixstatic.com/media/9ce3e5_d7d91a5eeb7944a39f5e1a45930c7f98~mv2.png" alt="Sponsored Games">
+                                <img src="https://static.wixstatic.com/media/9ce3e5_4174fe4ae4eb4f08958b6924f30890a7~mv2.png" alt="Sponsored Games">
                             </div>
                         </div>
                         <!-- Slide 2 -->
@@ -139,7 +139,7 @@
                                 <p>Organically weave your product or service into game questions, challenges, or as visual elements within the game environment or in-game video ads.</p>
                             </div>
                             <div class="slide-image-container">
-                                <img src="https://static.wixstatic.com/media/9ce3e5_2a85d6b8e5b242f1ad155778117af46d~mv2.png" alt="Product Integration">
+                                <img src="https://static.wixstatic.com/media/9ce3e5_e80e460b68c3476aa154d4d67b115197~mv2.png" alt="Product Integration">
                             </div>
                         </div>
                         <!-- Slide 3 -->
@@ -150,7 +150,7 @@
                                 <p>Showcase your product or service in the Blyza Store — where players discover exclusive offers, discounts, and trials while browsing for rewards.</p>
                             </div>
                             <div class="slide-image-container">
-                                <img src="https://via.placeholder.com/500x300/00BFA6/fff?text=Store+Display" alt="Store Display">
+                                <img src="https://static.wixstatic.com/media/9ce3e5_e6692556181f4da68f38660757b55ec1~mv2.png" alt="Store Display">
                             </div>
                         </div>
                         <!-- Slide 4 -->
@@ -178,12 +178,31 @@
             <div class="container aos-fade-in" data-aos-delay="200">
                 <h3>Ready to Make an <span class="highlight-section-theme">Impact?</span></h3>
                 <p>Let's discuss how Blyza can help your brand shine. Contact us for a custom proposal.</p>
-                <a href="mailto:brands@blyza.com" class="btn btn-retro-game">
+                <!-- === MODIFIED BUTTON === -->
+                <button id="contact-popup-trigger" class="btn btn-retro-game">
                     <span class="btn-text">Contact Our Team <i class="fas fa-paper-plane"></i></span>
-                </a>
+                </button>
             </div>
         </section>
     </main>
+
+    <!-- === NEW CONTACT POPUP MODAL === -->
+    <div id="contact-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">×</span>
+            <h3>Get in Touch!</h3>
+            <p>You can reach our partnership team at the email below.</p>
+            <div class="email-copy-container">
+                <input type="text" value="partner@playblyza.com" id="partner-email" readonly>
+                <button id="copy-email-btn" class="btn-copy">
+                    <i class="fas fa-copy"></i>
+                    <span class="copy-text">Copy</span>
+                </button>
+            </div>
+            <div id="copy-success-message" class="copy-success">Email Copied!</div>
+        </div>
+    </div>
+    <!-- === END OF MODAL === -->
 
     <footer id="footer-gamified">
         <div class="container">
@@ -207,7 +226,7 @@
                     <h4>Support</h4>
                      <ul>
                     
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="mailto:contact@playblyza.com">Contact Ops</a></li>
                     
                     </ul>
                 </div>
@@ -227,7 +246,89 @@
             </div>
         </div>
     </footer>
+
     <script src="js/script.js"></script>
     <script src="js/brands-slider.js"></script>
+
+    <!-- === NEW SCRIPT FOR CONTACT MODAL === -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Contact Modal Logic ---
+            const modal = document.getElementById('contact-modal');
+            const triggerBtn = document.getElementById('contact-popup-trigger');
+            const closeBtn = modal.querySelector('.close-button');
+            const copyBtn = document.getElementById('copy-email-btn');
+            const emailInput = document.getElementById('partner-email');
+            const copySuccessMsg = document.getElementById('copy-success-message');
+
+            if (modal && triggerBtn && closeBtn && copyBtn && emailInput) {
+                // Function to open the modal
+                const openModal = () => {
+                    modal.classList.add('show');
+                    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                };
+
+                // Function to close the modal
+                const closeModal = () => {
+                    modal.classList.remove('show');
+                    document.body.style.overflow = ''; // Restore background scrolling
+                    // Reset copy button feedback
+                    copySuccessMsg.classList.remove('visible');
+                    const copyTextSpan = copyBtn.querySelector('.copy-text');
+                    if (copyTextSpan) copyTextSpan.textContent = 'Copy';
+                    const icon = copyBtn.querySelector('i');
+                    if(icon) {
+                        icon.classList.remove('fa-check');
+                        icon.classList.add('fa-copy');
+                    }
+                };
+
+                // Event Listeners
+                triggerBtn.addEventListener('click', openModal);
+                closeBtn.addEventListener('click', closeModal);
+
+                // Close modal when clicking on the background overlay
+                modal.addEventListener('click', (event) => {
+                    if (event.target === modal) {
+                        closeModal();
+                    }
+                });
+
+                // Close modal with the Escape key
+                document.addEventListener('keydown', (event) => {
+                    if (event.key === 'Escape' && modal.classList.contains('show')) {
+                        closeModal();
+                    }
+                });
+
+                // Copy to clipboard functionality
+                copyBtn.addEventListener('click', () => {
+                    // Select the text field
+                    emailInput.select();
+                    emailInput.setSelectionRange(0, 99999); // For mobile devices
+
+                    // Use the modern clipboard API
+                    navigator.clipboard.writeText(emailInput.value).then(() => {
+                        // Success feedback
+                        copySuccessMsg.classList.add('visible');
+                        const copyTextSpan = copyBtn.querySelector('.copy-text');
+                        if (copyTextSpan) copyTextSpan.textContent = 'Copied!';
+                        const icon = copyBtn.querySelector('i');
+                        if(icon) {
+                           icon.classList.remove('fa-copy');
+                           icon.classList.add('fa-check');
+                        }
+
+                        // Reset after a delay
+                        setTimeout(closeModal, 2500); // Close modal automatically after success
+                    }).catch(err => {
+                        // Error feedback
+                        console.error('Failed to copy text: ', err);
+                        alert('Failed to copy email. Please copy it manually.');
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>
