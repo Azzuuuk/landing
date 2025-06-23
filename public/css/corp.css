@@ -59,7 +59,7 @@
     justify-content: center;
     text-align: center;
     color: var(--text-light);
-    padding: var(--nav-height) 20px 20px; /* Adjusted padding */
+    padding-top: var(--nav-height); /* Adjusted padding */
 }
 
 /* --- Corp Hero Section (#corp-hero) --- */
@@ -69,6 +69,7 @@
 
 /* === THIS SECTION IS FIXED === */
 #corp-hero h1 {
+ margin-top: 100px;
     font-size: clamp(2.2rem, 5vw, 3.5rem);
     -webkit-text-stroke-width: 1.5px;
     text-stroke-width: 1.5px;
@@ -76,7 +77,6 @@
     text-stroke-color: var(--black-stroke);
     margin-bottom: 0.3em;
     color: var(--text-light);
-    margin-top: 0; /* REMOVED fixed margin-top */
 }
 #corp-hero h1 .highlight-section-theme {
     color: var(--blyza-keppel-accent);
